@@ -6,8 +6,7 @@
 
 		<title>BEM</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="BEM-style CSS is for everyone.">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -42,68 +41,53 @@
 			<div class="slides">
 				<section>
 					<h1>BEM</h1>
-					<h3>is for everyone</h3>
-					<p>
-						<small>Learn to write BEM-style CSS for fun and profit.</small>
-					</p>
+					<h3>an object-oriented approach to CSS created through naming conventions for HTML and CSS classes</h3>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<h2>Why BEM?</h2>
+					<ol>
+						<li>Faster</li>
+						<li>Maintainable</li>
+						<li>Extensible</li>
+					</ol>
 				</section>
 
 				<section>
+					<h2>BEM 101</h2>
+					<ol>
+						<li>Everything is a class.</li>
+						<li>Nothing is nested.</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>BEM looks like this</h2>
 					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-				</section>
-
-
-				<section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
+						<p class="fragment">.block</p>
+						<p class="fragment">.block__element</p>
+						<p class="fragment">.block--modifier</p>
 					</section>
 				</section>
 
 				<section>
-					<h2>Pretty Code</h2>
+					<h2>Never do this.</h2>
+					<section id="fragments">
+						<p class="fragment">Nest CSS rules (ruins flat specificity chain)</p>
+						<p class="fragment">Override styles of an unrelated block</p>
+						<p class="fragment">Make an unnecessary parent block if the child element can stand on its own</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Code Example</h2>
 					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
+<a class="btn btn--green" href="http://socialtables.com">
+  <span class="btn__price">$9.99</span>
+  <span class="btn__text">Subscribe</span>
+</a>
 					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+					
 				</section>
 
 			</div>
