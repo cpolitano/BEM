@@ -82,12 +82,42 @@
 				<section>
 					<h2>Code Example</h2>
 					<pre><code class="hljs" data-trim contenteditable>
-<a class="btn btn--green" href="http://socialtables.com">
+<a class="btn btn--blue" href="http://socialtables.com">
   <span class="btn__price">$9.99</span>
-  <span class="btn__text">Subscribe</span>
+  <span class="btn__text">Schedule Demo</span>
 </a>
 					</code></pre>
 					
+				</section>
+
+				<section>
+					<h2>Do we even need CSS though?</h2>
+					<section id="fragments">
+						<p class="fragment">CSS is applied globally, which is why we need naming conventions to handle it</p>
+						<p class="fragment">CSS grows over time (like all code)</p>
+						<p class="fragment">More dynamic to style in a programming language</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Why write CSS at all when you have inline component styles?</h2>
+					<section id="fragments">
+						<p class="fragment">Stop pretending DOM and JS are separate concerns</p>
+						<p class="fragment">React makes DOM manipulation fast</p>
+						<p class="fragment">Less style cascade</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>What could possibly go wrong?</h2>
+					<section id="fragments">
+						<p class="fragment">Inline styles are higher specificity, so more difficult to override in style conflicts</p>
+						<p class="fragment">How do you style based on element state (:hover, :focus) or pseudo classes in inline styles?</p>
+						<p class="fragment">Media queries?</p>
+						<p class="fragment">Inline style add DOM weight as data stored on the element</p>
+						<p class="fragment">Triggering a repaint each time a component reloads</p>
+						<p class="fragment">Overengineering required to recreate styles CSS accomplishes simply</p>
+					</section>
 				</section>
 
 			</div>
