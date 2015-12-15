@@ -37,15 +37,34 @@
 
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>BEM</h1>
-					<h3>an object-oriented approach to CSS created through naming conventions for HTML and CSS classes</h3>
+					<h1>Block, Element, Modifier</h1>
+					<h3>CSS naming conventions for fun and profit</h3>
+				</section>
+
+				<section>
+					<h2>BEM looks like this</h2>
+					<section>
+						<h3 class="fragment">.block</h3>
+						<h3 class="fragment">.block__element</h3>
+						<h3 class="fragment">.block--modifier</h3>
+					</section>
+				</section>
+
+				<section>
+					<h2>BEM 101</h2>
+					<ol>
+						<li>Consistent naming convention makes relationship between markup and styles easy to understand at a glance</li>
+						<li>Blocks and elements should be as abstract as possible (ex. .media instead of .photo</li>
+						<li>Everything is a class and nothing is nested.</li>
+					</ol>
 				</section>
 
 				<section>
 					<h2>Why BEM?</h2>
+					<img width="600" data-src="http://i.giphy.com/KVeeqrI575N8A.gif" alt="red panda">
+					<br/>
 					<ol>
 						<li>Faster</li>
 						<li>Maintainable</li>
@@ -54,45 +73,77 @@
 				</section>
 
 				<section>
-					<h2>BEM 101</h2>
-					<ol>
-						<li>Everything is a class.</li>
-						<li>Nothing is nested.</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>BEM looks like this</h2>
-					<section id="fragments">
-						<p class="fragment">.block</p>
-						<p class="fragment">.block__element</p>
-						<p class="fragment">.block--modifier</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Never do this.</h2>
-					<section id="fragments">
-						<p class="fragment">Nest CSS rules (ruins flat specificity chain)</p>
-						<p class="fragment">Override styles of an unrelated block</p>
-						<p class="fragment">Make an unnecessary parent block if the child element can stand on its own</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Code Example</h2>
+					<h2>Do this</h2>
 					<pre><code class="hljs" data-trim contenteditable>
-<a class="btn btn--blue" href="http://socialtables.com">
-  <span class="btn__price">$9.99</span>
-  <span class="btn__text">Schedule Demo</span>
-</a>
-					</code></pre>
-					
+<div class="card">
+    <div class="card__header">
+        
+        <h2 class="card__title">Four Seasons</h2>
+    
+    </div>
+
+    <div class="card__body">
+        
+        <img class="card__img" src="four-seasons.png">
+        
+        <p class="card__text">600 M St Washington DC</p>
+        <p class="card__text">3 mi to airport
+            <a href="#" class="card__link">View Floorplans</a>
+        </p>
+
+    </div>
+</div>
+					</code></pre>	
+				</section>
+
+				<section>
+					<h2>Don't do this</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+<div class="card">
+    <div class="card__header">
+        
+        <h2 class="card__header__title">Four Seasons</h2>
+    
+    </div>
+
+    <div class="card__body">
+        
+        <img class="card__body__img" src="four-seasons.png">
+        
+        <p class="card__body__text">600 M St Washington DC</p>
+        <p class="card__body__text">3 mi to airport
+            <a href="#" class="card__body__text__link">View Floorplans</a>
+        </p>
+
+    </div>
+</div>
+					</code></pre>	
+				</section>
+
+				<section>
+					<h2>Never do this</h2>
+					<img width="500" height="350" data-src="http://i.giphy.com/thrq4HmCjOO1q.gif" alt="star wars">
+					<br/>
+					<ul>
+						<li>Nest CSS rules (disrupts flat specificity chain)</li>
+						<li>Override styles of an unrelated block</li>
+						<li>Make unnecessary parent blocks if the child block can stand on its own</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Whiteboard Time</h2>
+					<img width="750" data-src="lib/st-landing.jpg" alt="cat pushing things">
 				</section>
 
 				<section>
 					<h2>Do we even need CSS though?</h2>
-					<section id="fragments">
+					<img width="500" data-src="http://i.giphy.com/uXbXCQ9c3irpC.gif" alt="cat pushing things">
+				</section>
+
+				<section>
+					<h2>Do we even need CSS though?</h2>
+					<section>
 						<p class="fragment">CSS is applied globally, which is why we need naming conventions to handle it</p>
 						<p class="fragment">CSS grows over time (like all code)</p>
 						<p class="fragment">More dynamic to style in a programming language</p>
@@ -101,7 +152,7 @@
 
 				<section>
 					<h2>Why write CSS at all when you have inline component styles?</h2>
-					<section id="fragments">
+					<section>
 						<p class="fragment">Stop pretending DOM and JS are separate concerns</p>
 						<p class="fragment">React makes DOM manipulation fast</p>
 						<p class="fragment">Less style cascade</p>
@@ -110,14 +161,23 @@
 
 				<section>
 					<h2>What could possibly go wrong?</h2>
-					<section id="fragments">
+					<img width="600" data-src="http://i.giphy.com/ejfJcX4n1g72U.gif" alt="cat water balloon fail">
+				</section>
+
+				<section>
+					<h2>What could possibly go wrong?</h2>
+					<br/>
+					<section>
 						<p class="fragment">Inline styles are higher specificity, so more difficult to override in style conflicts</p>
-						<p class="fragment">How do you style based on element state (:hover, :focus) or pseudo classes in inline styles?</p>
-						<p class="fragment">Media queries?</p>
+						<p class="fragment">How do you style based on element state (:hover, :focus) or pseudo elements (:before) in inline styles?</p>
 						<p class="fragment">Inline style add DOM weight as data stored on the element</p>
-						<p class="fragment">Triggering a repaint each time a component reloads</p>
-						<p class="fragment">Overengineering required to recreate styles CSS accomplishes simply</p>
+						<p class="fragment">More complicated way of writing styles that CSS accomplishes simply</p>
 					</section>
+				</section>
+
+				<section>
+					<h2>Thanks // Discuss</h2>
+					<img width="700" data-src="http://i.giphy.com/vifv0FTKidn5S.gif" alt="bb8">
 				</section>
 
 			</div>
