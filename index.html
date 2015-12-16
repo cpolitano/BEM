@@ -39,7 +39,8 @@
 
 			<div class="slides">
 				<section>
-					<h1>Block, Element, Modifier</h1>
+					<h1>BEM</h1>
+					<h2>Block, Element, Modifier</h2>
 					<h3>CSS naming conventions for fun and profit</h3>
 				</section>
 
@@ -56,7 +57,7 @@
 					<h2>BEM 101</h2>
 					<ol>
 						<li>Consistent naming convention makes relationship between markup and styles easy to understand at a glance</li>
-						<li>Blocks and elements should be as abstract as possible (ex. .media instead of .photo</li>
+						<li>Blocks and elements should be as generic as possible (ex. .media instead of .photo</li>
 						<li>Everything is a class and nothing is nested.</li>
 					</ol>
 				</section>
@@ -87,7 +88,7 @@
         <img class="card__img" src="four-seasons.png">
         
         <p class="card__text">600 M St Washington DC</p>
-        <p class="card__text">3 mi to airport
+        <p class="card__text--bold">3 mi to airport
             <a href="#" class="card__link">View Floorplans</a>
         </p>
 
@@ -111,7 +112,7 @@
         <img class="card__body__img" src="four-seasons.png">
         
         <p class="card__body__text">600 M St Washington DC</p>
-        <p class="card__body__text">3 mi to airport
+        <p class="card__body__text--bold">3 mi to airport
             <a href="#" class="card__body__text__link">View Floorplans</a>
         </p>
 
@@ -125,7 +126,7 @@
 					<img width="500" height="350" data-src="http://i.giphy.com/thrq4HmCjOO1q.gif" alt="star wars">
 					<br/>
 					<ul>
-						<li>Nest CSS rules (disrupts flat specificity chain)</li>
+						<li>Nest CSS rules (want to keep flat specificity chain)</li>
 						<li>Override styles of an unrelated block</li>
 						<li>Make unnecessary parent blocks if the child block can stand on its own</li>
 					</ul>
@@ -144,9 +145,9 @@
 				<section>
 					<h2>Do we even need CSS though?</h2>
 					<section>
-						<p class="fragment">CSS is applied globally, which is why we need naming conventions to handle it</p>
-						<p class="fragment">CSS grows over time (like all code)</p>
-						<p class="fragment">More dynamic to style in a programming language</p>
+						<p class="fragment">We need naming conventions just to handle CSS</p>
+						<p class="fragment">Bloated, legacy CSS is difficult to work with</p>
+						<p class="fragment">More opportunities for dynamic styles in a programming language</p>
 					</section>
 				</section>
 
@@ -154,8 +155,9 @@
 					<h2>Why write CSS at all when you have inline component styles?</h2>
 					<section>
 						<p class="fragment">Stop pretending DOM and JS are separate concerns</p>
-						<p class="fragment">React makes DOM manipulation fast</p>
-						<p class="fragment">Less style cascade</p>
+						<p class="fragment">React makes DOM manipulation efficient (so repaints aren't such a big deal)</p>
+						<p class="fragment">Encapsulation + inline styles = little style cascade</p>
+						<p class="fragment">Compute styles based on everything the JS knows</p>
 					</section>
 				</section>
 
@@ -168,9 +170,10 @@
 					<h2>What could possibly go wrong?</h2>
 					<br/>
 					<section>
-						<p class="fragment">Inline styles are higher specificity, so more difficult to override in style conflicts</p>
-						<p class="fragment">How do you style based on element state (:hover, :focus) or pseudo elements (:before) in inline styles?</p>
-						<p class="fragment">Inline style add DOM weight as data stored on the element</p>
+						<p class="fragment">Higher specificity of inline styles make it more difficult to resolve style conflicts</p>
+						<p class="fragment">More work to style based on element state (:hover, :focus) or pseudo elements (:before)</p>
+						<p class="fragment">Inline styles add DOM weight as data stored on the element</p>
+						<p class="fragment">Tightly coupling styles and functionality might not always make sense</p>
 						<p class="fragment">More complicated way of writing styles that CSS accomplishes simply</p>
 					</section>
 				</section>
